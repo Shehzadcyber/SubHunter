@@ -1,0 +1,31 @@
+# SubHunter Configuration File
+# Place this as config.yaml in the same directory as subhunter.py
+# Leave API keys empty ("") to skip that source — no crashes, graceful skip.
+
+# ─── API Keys ────────────────────────────────────────────────────────────────────
+
+securitytrails: ""       # https://securitytrails.com/app/account/credentials
+virustotal:     ""       # https://www.virustotal.com/gui/my-apikey
+shodan:         ""       # https://account.shodan.io/
+censys_id:      ""       # https://search.censys.io/account/api
+censys_secret:  ""       # ^ same page, both ID and Secret required
+zoomeye:        ""       # https://www.zoomeye.org/profile
+binaryedge:     ""       # https://www.binaryedge.io/pricing.html
+chaos:          ""       # https://chaos.projectdiscovery.io/ (invite only)
+
+# ─── Performance Tuning ───────────────────────────────────────────────────────────
+
+# Seconds to sleep between paginated API calls (avoid rate-limiting)
+rate_limit_delay: 1
+
+# Per-tool timeout in seconds (passive CLI tools)
+tool_timeout: 300
+
+# ─── Active Resolution / Brute-Force ─────────────────────────────────────────────
+
+# Path to public DNS resolver list used by puredns/massdns
+resolvers_file: "/tmp/subhunter_resolvers.txt"
+
+# Wordlist for active brute-force (puredns)
+# Recommended: SecLists subdomains-top1million-5000.txt or larger
+wordlist: "/usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt"
